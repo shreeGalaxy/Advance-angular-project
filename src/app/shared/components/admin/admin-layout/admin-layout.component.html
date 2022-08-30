@@ -1,0 +1,45 @@
+<div class="container-fluid">
+    <!-- Header -->
+    <app-header></app-header>
+    <!-- Header -->
+    <!-- Sidenav -->
+    <app-sidenav></app-sidenav>
+    <!-- Sidenav -->
+    <div class="content">
+      <!-- Breadcrumb -->
+      <app-breadcrumb></app-breadcrumb>
+      <!-- Breadcrumb -->
+      <!-- Main Body -->
+      <div class="card" style="background-color: lightcyan">
+        <div class="card-body">
+          <ng-container *ngIf="isDashboard;then dashboardContentShow else otherContentShow"></ng-container>
+          <ng-template #dashboardContentShow>
+            <ng-content></ng-content>
+          </ng-template>
+          <ng-template #otherContentShow>
+            <h3>{{uiConfig.headerTitle}}</h3>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                    <th scope="col" *ngFor="let col of uiConfig.tableColumns">{{col.title}}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let row of items;">
+                    <td *ngFor="let col of uiConfig.tableColumns">{{row[col.columnName]}}</td>
+                    <td>
+                      <button class="btn btn-warning" style="text-decoration: none;" (click) = "editPost(row[uiConfig.actions.rowId])">Edit</button> 
+                      <button class="btn btn-danger" style="text-decoration: none;" (click) = "delete(row[uiConfig.actions.rowId])">Delete</button>  
+                    </td>
+                </tr>
+              </tbody>
+            </table>
+          </ng-template>
+        </div>
+      </div>
+      <!-- Main Body -->
+    </div>
+    <!-- Footer -->
+    <app-footer></app-footer>
+    <!-- Footer -->
+</div>

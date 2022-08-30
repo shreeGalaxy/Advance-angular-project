@@ -1,0 +1,16 @@
+<app-admin-layout>
+    <button class="btn btn-warning" (click)="toggle()">Show welcome Gif. </button>
+    
+    <ng-container *ngIf="displayGif">
+        <div class="center">
+            <img class="mx-auto d-block" src="assets/images/welcome.gif" alt="Welcome Back."/>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="!displayGif">
+        <div class="center">
+            <h3>Sorry!</h3>
+        </div>
+    </ng-container>
+    <hr>
+    <div>Using custom pipe, i changes the date date formate 2022-08-29T06:06:16.110Z to - {{date | formatDate}}</div>
+</app-admin-layout>

@@ -1,1 +1,37 @@
-<p>login works!</p>
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <div class="fadeIn first">
+      <h2>{{'login.title' | translate }}</h2>
+    </div>
+
+    <!-- Login Form -->
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="form-outline mb-4">
+        <input type="email" class="fadeIn second inputText form-control" placeholder="{{ 'login.email.placeholder' | translate }}" formControlName="email">
+        <div class="text-danger fadeIn second"
+            *ngIf="!loginForm.controls.email?.valid && (loginForm.controls.email?.dirty
+            ||loginForm.controls.email?.touched)">
+            Email is required.
+        </div>
+      </div>
+      <div class="form-outline mb-4">
+        <input type="password" class="fadeIn third inputText form-control" placeholder="{{ 'login.password.placeholder' | translate }}" formControlName="password">
+        <div class="text-danger fadeIn third"
+            *ngIf="!loginForm.controls.password?.valid && (loginForm.controls.password?.dirty
+            ||loginForm.controls.password?.touched)">
+            Password is required.
+        </div>
+      </div>
+        <!-- Submit button -->
+      <div>
+        <input type="submit" value="Sign in" [disabled]="!loginForm.valid" class="btn btn-primary btn-block mb-4 center fadeIn fourth">
+      </div>
+    </form>
+
+    <!-- Sign up-->
+    <div id="formFooter">
+      <a class="underlineHover" routerLink="/auth/signup">Sign up</a>
+    </div>
+
+  </div>
+</div>

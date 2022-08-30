@@ -1,0 +1,38 @@
+<header class="section-header">
+    <nav class="navbar navbar-dark navbar-expand p-0 bg-light">
+        <div class="container-fluid">
+            <ul class="navbar-nav d-none d-md-flex mr-auto" >
+              <li class="nav-item">
+                <img width="60px" src="https://freepngimg.com/thumb/tax/81517-status-text-faq-tax-logo-filing.png" />
+              </li>
+              <li class="nav-item">
+              <a
+                style= "color: black;"
+                class="nav-link active"
+                aria-current="page"
+                href="admin/dashboard"
+                >Dashboard</a
+              >
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                style= "color: black;"
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Information
+              </a>
+              <ul class="dropdown-menu" style="z-index: 9999;">
+                <li><a style= "color: black;" class="dropdown-item" href="#">About us</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li><a style= "color: black;" class="dropdown-item" href="#">Contact us</a></li>
+              </ul>
+            </li>
+            </ul>
+          <button class="btn btn-outline-success" (click)="authService.logout()">Sign Out</button>
+        </div>
+    </nav> 
+  </header>

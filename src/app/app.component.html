@@ -1,1 +1,27 @@
 <router-outlet></router-outlet>
+<div class="container">
+  <div class="row custom-wrapper">
+    <div class="col-md-12">
+      <!-- Form starts -->
+      <form [formGroup]="languageForm">
+        <div class="group-gap">
+          <div class="d-block my-3">
+            <div class="mb-3">
+              <select
+                class="custom-select"
+                (change)="changeLanguage()"
+                formControlName="langName"
+              >
+                <option value="">Choose your Language</option>
+                <option *ngFor="let lang of langauges" [ngValue]="lang.id">
+                  {{ lang.name }}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </form>
+      <!-- Form ends -->
+    </div>
+  </div>
+</div>

@@ -2,16 +2,17 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BotAddEditComponent } from './components/bot/bot-add-edit/bot-add-edit.component';
 import { BotListComponent } from './components/bot/bot-list/bot-list.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { FaqAddEditComponent } from './components/faq/faq-add-edit/faq-add-edit.component';
 import { FaqListComponent } from './components/faq/faq-list/faq-list.component';
 
 const routes: Routes = [
   {
-    path: '**',
-    component: BotListComponent
+    path: 'dashboard',
+    component: DashboardComponent
   },
   {
-    path: 'bot',
+    path: 'bot-list',
     component: BotListComponent
   },
   {
@@ -23,7 +24,7 @@ const routes: Routes = [
     component: BotAddEditComponent
   },
   {
-    path: 'faq',
+    path: 'faq-list',
     component: FaqListComponent
   },
   {
@@ -34,6 +35,10 @@ const routes: Routes = [
     path: 'faq/edit/:id',
     component: FaqAddEditComponent
   },
+  {
+    path: '**',
+    redirectTo: 'dashboard'
+  }
 ];
 
 @NgModule({
